@@ -1,0 +1,30 @@
+<script type="text/ng-template" id="elementsTree">
+  <div class="list">
+    <div class="option-buttons">
+      <div data-toggle="collapse" class="minimize collapsed" data-target="{{'.'+parent.id}}" ng-class="{vhide:!parent.children.length}" ng-click="togglecollapse($event)">&ndash;</div>
+      <div class="optionBullet">
+        <div id="triangle-up"></div>
+        <ul class="options dropdown-menu">
+          <li ng-click="markcompleted(parent.id)" ng-class="{lineThrough:parent.completed}">Complete</li>
+          <li class="divider"></li>
+          <li ng-click="addnote(parent.id)" ng-if="!parent.note">Add Note</li>
+          <li ng-click="removenote(parent.id)" ng-if="parent.note" class="smallFont">Remove Note</li>
+          <li class="divider"></li>
+          <li ng-click="duplicate(parent.id)">Duplicate</li>
+          <li class="divider"></li>
+          <li ng-click="deletenode(parent.id)">Delete</li>
+        </ul>
+      </div>
+    </div>
+    <input ng-class="{bold:parent.children.length,completed:parent.completed}" ng-keydown="whichkey($event,parent.id)" type="text" ng-model="parent.info" data-id="{{parent.id}}" data-uuid="{{parent.uuid}}">
+    <br>
+    <input class="note" ng-if="parent.note" ng-class="{completed:parent.completed}" type="text" type="text" ng-model="parent.note">
+  </div>
+  <hr>
+  <ul ng-if="parent.children" ng-class="{completedParent:parent.completed}" class="{{parent.id}} in">
+    <li ng-repeat="parent in parent.children track by $index" ng-include="'elementsTree'"> </li>
+  </ul>
+</script>
+<ul>
+  <li ng-repeat="parent in arr track by $index" ng-include="'elementsTree'"></li>
+</ul>

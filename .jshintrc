@@ -1,0 +1,9 @@
+{
+  "esversion":6,
+  "devel":true,
+  "predef":{
+    "angular":true,
+    "$":true
+  },
+  "browser":true
+}

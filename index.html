@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/main.js"></script>
+  <title>Derpflowy</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">derpflowy</a>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <div class="container flowy-container" ng-app="flowy" ng-controller="flowyController">
+    <h3><strong>Home</strong></h3>
+    <div class="addNew" ng-click="addNew()" ng-hide="$storage.elements.length">+</div>
+    <element-directive arr="$storage.elements" whichkey="whichKey" markcompleted="markCompleted" duplicate="duplicate" deletenode="deleteNode" addnote="addNote" removenote="removeNote" togglecollapse="toggleCollapse"></element-directive>
+  </div>
+  
+</body>
+
+</html>
