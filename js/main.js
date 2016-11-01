@@ -263,7 +263,7 @@ app.controller("flowyController", function ($scope, $timeout, $localStorage) {
     let parentId = siblingId;
     let pointingIndex = parseInt(parentId.split('-')[currIndex]);
     let refToReturn = '';
-    console.log(ref[pointingIndex].id);
+    //console.log(ref[pointingIndex].id);
     if (ref[pointingIndex].id === parentId) {
       //console.log(ref[pointingIndex].children);
       return ref[pointingIndex];
